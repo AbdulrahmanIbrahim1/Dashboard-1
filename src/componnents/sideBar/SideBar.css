@@ -1,0 +1,98 @@
+.sideBar {
+  width: 75px !important;
+  background-color: #eee;
+  /* height: 100%; */
+  position: relative;
+  padding: 10px 0;
+  transition: .5s;
+  display: inline-block;
+}
+
+.sideBar-0 {
+  width: 20% !important;
+}
+@media (max-width : 797px) {
+  .sideBar{
+    width: 10%;
+  }
+  .sideBar-0{
+    width: 55% !important;
+  }
+}
+
+
+.img-prof-0 {
+  max-width: 80%;
+  text-align: center;
+  margin-left: 5px;
+}
+
+
+
+.g-1,
+.g-2,
+.g-3,
+.g-0 {
+  width: 100%;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  /* padding-right: 10px; */
+}
+
+.img-prof-0::after,
+.g-1::after,
+.g-2::after,
+.g-3::after {
+  content: "";
+  position: absolute;
+  background-color: #c0bebe;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  /* left: ; */
+  right: 0;
+}
+
+.img-prof-0 img {
+  border-radius: 50%;
+  border: 2px solid gray;
+  margin: 5px 0;
+}
+
+.sideBar i {
+  font-size: 25px;
+  margin: 10px ;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+  justify-content: space-between;
+  max-width: 100%;
+  min-width: 70%;
+  transition: .5s;
+  /* color: black; */
+}
+.icon0 {
+  width: 80%;
+}
+
+.icon p {
+  margin-left: 5px;
+  text-align: center;
+  width: 90%;
+}
+
+.fa-angle-left {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+/* ==== */
