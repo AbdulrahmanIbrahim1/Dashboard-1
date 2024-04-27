@@ -36,7 +36,7 @@ export default function TopBar() {
             placeholder="Search"
             aria-label="Search"
             // aria-describedby="basic-addon1"
-            className={dark ? "search-dark" : ""}
+            className={`mysearch ${dark ? "search-dark" : ""}`}
           />
         </InputGroup>
       </Form>

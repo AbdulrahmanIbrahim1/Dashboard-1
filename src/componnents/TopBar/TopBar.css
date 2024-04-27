@@ -16,7 +16,7 @@
 .icons{
   width: 20%;
   display: flex ;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 20px;
 }
 .icons i{
@@ -25,4 +25,16 @@
 .search-dark{
   background-color: black !important;
   color: rgba(255, 255, 255, 0.688)  !important;
+}
+
+@media (max-width : 797px) {
+  .mysearch{
+    max-width: 100px !important;
+  }
+  .icons{
+    width: 30% !important;
+  }
+  .icons i{
+    padding-left: 10px;
+  }
 }
