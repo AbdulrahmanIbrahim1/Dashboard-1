@@ -36,10 +36,10 @@ function App() {
       <DisplaySide.Provider value={displayState}>
         <Dark.Provider value={darkMode}>
           <TopBar />
-          <div className={`d-flex cont trans-5 ${dark ? "bg-dark" : "  bg-light"}`}>
+          <div className={`d-flex cont trans-5 ${dark ? "bg-black" : "  bg-light"}`}>
             <SideBar />
             {/* <p className="">Content Here</p> */}
-            <div className={`content ${dark ? "bg-dark text-white border border-black" : " bg-light"}`}>
+            <div className={`content ${dark ? "bg-black text-white border border-black" : " bg-light"}`}>
               <Routes>
                 <Route path='' element={<Dashboard />} />
                 <Route path='team' element={<Team />} />

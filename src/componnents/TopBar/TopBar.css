@@ -38,3 +38,6 @@
     padding-left: 10px;
   }
 }
+[theme=true].mysearch::placeholder{
+  color: whitesmoke !important;
+}

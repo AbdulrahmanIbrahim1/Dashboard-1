@@ -10,7 +10,7 @@ export default function SideBar() {
   const { dark } = useContext(Dark)
   return (
     <>
-      <div className={` sideBar  ${display ? 'sideBar-0' : 'sideBar'}  ${dark ? "bg-dark text-white-50" : " "}`}>
+      <div className={` sideBar  ${display ? 'sideBar-0' : 'sideBar'}  ${dark ? "bg-black text-white-50" : " "}`}>
         <div className='g-0'>
           <i className={`fa-solid fa-angle-left ${display ? "" : "d-none"}`} onClick={() => { setTrue(false) }}></i>
           <div className="img-prof-0" >
