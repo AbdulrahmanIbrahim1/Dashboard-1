@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Dark } from '../../App'
 import { Data } from './data';
+import Body from './Body';
 
 
 
@@ -16,43 +17,53 @@ export default function Contacts() {
   }
 
   const showFilters = (value) => {
-    const newData = []
-    return (
-      <>
-        {
-          Data.map((data) => {
-            if(value.column === "age"){
-              if (value.operator === ">") {
-                if (data.age > value.value) {
-                  newData.push(data)
-                  console.log(newData);
-                }
-              }
-              if (value.operator === "<") {
-                if (data.age < value.value) {
-                  newData.push(data)
-                  console.log(newData);
-                }
-              }
-            }
-          })
+    return Data.filter((data) => {
+      if (value.column === "age") {
+        if (value.operator === ">") {
+          return data.age > value.value;
         }
+        if (value.operator === "<") {
+          return data.age < value.value;
+        }
+      }
+      return false;
+    });
+  };
 
-        <tr key={newData.id}>
-          <th scope="row" className={cellClass}>{newData.id}</th>
-          <td className={cellClass}>{newData.registrarId}</td>
-          <td className={cellClass}>{newData.name}</td>
-          <td className={cellClass}>{newData.age}</td>
-          <td className={cellClass}>{newData.phone}</td>
-          <td className={cellClass}>{newData.email}</td>
-          <td className={cellClass}>{newData.Address}</td>
-          <td className={cellClass}>{newData.city}</td>
-          <td className={cellClass}>{newData.zipCode}</td>
-        </tr>
+  // const showFilters = (value) => {
+  //   const newData = []
+  //   // <>
+  //   return  Data.map((data) => {
+  //           if(value.column === "age"){
+  //             if (value.operator === ">") {
+  //               if (data.age > value.value) {
+  //                 newData.push(data)
+  //                 console.log(newData);
+  //               }
+  //             }
+  //             if (value.operator === "<") {
+  //               if (data.age < value.value) {
+  //                 newData.push(data)
+  //                 console.log(newData);
+  //               }
+  //             }
+  //           }
+  //         })
+  //       }
 
-      </>
-    )
-  }
+  // {/* <tr key={newData.id}>
+  //   <th scope="row" className={cellClass}>{newData.id}</th>
+  //   <td className={cellClass}>{newData.registrarId}</td>
+  //   <td className={cellClass}>{newData.name}</td>
+  //   <td className={cellClass}>{newData.age}</td>
+  //   <td className={cellClass}>{newData.phone}</td>
+  //   <td className={cellClass}>{newData.email}</td>
+  //   <td className={cellClass}>{newData.Address}</td>
+  //   <td className={cellClass}>{newData.city}</td>
+  //   <td className={cellClass}>{newData.zipCode}</td>
+  // </tr> */}
+
+
 
   const tableClass = `table trans-5 table-hover MyTable mx-auto ${dark ? "table-black bg-black" : ""}`;
   const cellClass = dark ? "bg-black text-white trans-5" : "trans-5";
@@ -96,7 +107,7 @@ export default function Contacts() {
           Filter Value
           <input type="number" onChange={(e) => {
             valueFilters.value = e.target.value;
-            showFilters(valueFilters)
+            console.log(showFilters(valueFilters));
           }} />
         </div>
       </div>
@@ -117,19 +128,7 @@ export default function Contacts() {
       </thead>
       <tbody>
         {showFilters(valueFilters)}
-        {Data.map((data) => (
-          <tr key={data.id}>
-            <th scope="row" className={cellClass}>{data.id}</th>
-            <td className={cellClass}>{data.registrarId}</td>
-            <td className={cellClass}>{data.name}</td>
-            <td className={cellClass}>{data.age}</td>
-            <td className={cellClass}>{data.phone}</td>
-            <td className={cellClass}>{data.email}</td>
-            <td className={cellClass}>{data.Address}</td>
-            <td className={cellClass}>{data.city}</td>
-            <td className={cellClass}>{data.zipCode}</td>
-          </tr>
-        ))}
+        <Body cellClass={cellClass} Data={Data} />
       </tbody>
     </table>
   </>
