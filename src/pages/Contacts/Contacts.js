@@ -17,13 +17,24 @@ export default function Contacts() {
     return Data.filter((data) => {
       if (value.column === "age") {
         if (value.operator === ">") {
+          if (value.value === null) {
+            return data;
+          }
           return data.age > value.value;
         }
         if (value.operator === "<") {
+          if (value.value === null) {
+            return data;
+          }
           return data.age < value.value;
         }
       }
+      value.operator ="..."
+      if(value.value===null){
+        return data;
+      }
       return data;
+      
     });
   };
 
