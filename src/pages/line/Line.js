@@ -1,283 +1,127 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ResponsiveLine } from '@nivo/line'
+import { Dark } from '../../App'
+import { data } from './data'
 
-const data = [
-  {
-    "id": "japan",
-    "color": "hsl(55, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 10
-      },
-      {
-        "x": "helicopter",
-        "y": 276
-      },
-      {
-        "x": "boat",
-        "y": 140
-      },
-      {
-        "x": "train",
-        "y": 59
-      },
-      {
-        "x": "subway",
-        "y": 186
-      },
-      {
-        "x": "bus",
-        "y": 231
-      },
-      {
-        "x": "car",
-        "y": 265
-      },
-      {
-        "x": "moto",
-        "y": 213
-      },
-      {
-        "x": "bicycle",
-        "y": 246
-      },
-      {
-        "x": "horse",
-        "y": 13
-      },
-      {
-        "x": "skateboard",
-        "y": 285
-      },
-      {
-        "x": "others",
-        "y": 281
-      }
-    ]
-  },
-  {
-    "id": "france",
-    "color": "hsl(320, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 276
-      },
-      {
-        "x": "helicopter",
-        "y": 88
-      },
-      {
-        "x": "boat",
-        "y": 282
-      },
-      {
-        "x": "train",
-        "y": 177
-      },
-      {
-        "x": "subway",
-        "y": 130
-      },
-      {
-        "x": "bus",
-        "y": 252
-      },
-      {
-        "x": "car",
-        "y": 274
-      },
-      {
-        "x": "moto",
-        "y": 243
-      },
-      {
-        "x": "bicycle",
-        "y": 60
-      },
-      {
-        "x": "horse",
-        "y": 137
-      },
-      {
-        "x": "skateboard",
-        "y": 217
-      },
-      {
-        "x": "others",
-        "y": 27
-      }
-    ]
-  },
-  {
-    "id": "us",
-    "color": "hsl(321, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 122
-      },
-      {
-        "x": "helicopter",
-        "y": 113
-      },
-      {
-        "x": "boat",
-        "y": 58
-      },
-      {
-        "x": "train",
-        "y": 103
-      },
-      {
-        "x": "subway",
-        "y": 275
-      },
-      {
-        "x": "bus",
-        "y": 119
-      },
-      {
-        "x": "car",
-        "y": 138
-      },
-      {
-        "x": "moto",
-        "y": 276
-      },
-      {
-        "x": "bicycle",
-        "y": 65
-      },
-      {
-        "x": "horse",
-        "y": 126
-      },
-      {
-        "x": "skateboard",
-        "y": 194
-      },
-      {
-        "x": "others",
-        "y": 283
-      }
-    ]
-  },
-  {
-    "id": "germany",
-    "color": "hsl(276, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 219
-      },
-      {
-        "x": "helicopter",
-        "y": 299
-      },
-      {
-        "x": "boat",
-        "y": 136
-      },
-      {
-        "x": "train",
-        "y": 278
-      },
-      {
-        "x": "subway",
-        "y": 22
-      },
-      {
-        "x": "bus",
-        "y": 255
-      },
-      {
-        "x": "car",
-        "y": 115
-      },
-      {
-        "x": "moto",
-        "y": 9
-      },
-      {
-        "x": "bicycle",
-        "y": 229
-      },
-      {
-        "x": "horse",
-        "y": 252
-      },
-      {
-        "x": "skateboard",
-        "y": 165
-      },
-      {
-        "x": "others",
-        "y": 78
-      }
-    ]
-  },
-  {
-    "id": "norway",
-    "color": "hsl(349, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 287
-      },
-      {
-        "x": "helicopter",
-        "y": 83
-      },
-      {
-        "x": "boat",
-        "y": 204
-      },
-      {
-        "x": "train",
-        "y": 173
-      },
-      {
-        "x": "subway",
-        "y": 101
-      },
-      {
-        "x": "bus",
-        "y": 138
-      },
-      {
-        "x": "car",
-        "y": 85
-      },
-      {
-        "x": "moto",
-        "y": 147
-      },
-      {
-        "x": "bicycle",
-        "y": 123
-      },
-      {
-        "x": "horse",
-        "y": 148
-      },
-      {
-        "x": "skateboard",
-        "y": 78
-      },
-      {
-        "x": "others",
-        "y": 196
-      }
-    ]
-  }
-]
+
 
 export default function Line() {
+  const { dark } = useContext(Dark)
   return (
     <div className='char-parent'>
       <ResponsiveLine
+        theme={
+          {
+            "background": `${dark ? " " : "#eee"}`,
+            "text": {
+              "fontSize": 11,
+              "fill": "#333333",
+              "outlineWidth": 0,
+              "outlineColor": "transparent"
+            },
+            "axis": {
+              "domain": {
+                "line": {
+                  "stroke": "#777777",
+                  "strokeWidth": 1
+                }
+              },
+              "legend": {
+                "text": {
+                  "fontSize": 12,
+                  "fill": `${dark ? "white" : ""}`,
+                  "outlineWidth": 0,
+                  "outlineColor": "transparent"
+                }
+              },
+              "ticks": {
+                "line": {
+                  "stroke": "#777777",
+                  "strokeWidth": 1
+                },
+                "text": {
+                  "fontSize": 11,
+                  "fill": `${dark ? "white" : ""}`,
+                  "outlineWidth": 0,
+                  "outlineColor": "transparent"
+                }
+              }
+            },
+            "grid": {
+              "line": {
+                "stroke": "#dddddd",
+                "strokeWidth": 0
+              }
+            },
+            "legends": {
+              "title": {
+                "text": {
+                  "fontSize": 11,
+                  "fill": "#333333",
+                  "outlineWidth": 0,
+                  "outlineColor": "transparent"
+                }
+              },
+              "text": {
+                "fontSize": 11,
+                "fill": `${dark ? "white" : ""}`,
+                "outlineWidth": 0,
+                "outlineColor": "transparent"
+              },
+              "ticks": {
+                "line": {},
+                "text": {
+                  "fontSize": 10,
+                  "fill": "#333333",
+                  "outlineWidth": 0,
+                  "outlineColor": "transparent"
+                }
+              }
+            },
+            "annotations": {
+              "text": {
+                "fontSize": 13,
+                "fill": "#333333",
+                "outlineWidth": 2,
+                "outlineColor": "#ffffff",
+                "outlineOpacity": 1
+              },
+              "link": {
+                "stroke": "#000000",
+                "strokeWidth": 1,
+                "outlineWidth": 2,
+                "outlineColor": "#ffffff",
+                "outlineOpacity": 1
+              },
+              "outline": {
+                "stroke": "#000000",
+                "strokeWidth": 2,
+                "outlineWidth": 2,
+                "outlineColor": "#ffffff",
+                "outlineOpacity": 1
+              },
+              "symbol": {
+                "fill": "#000000",
+                "outlineWidth": 2,
+                "outlineColor": "#ffffff",
+                "outlineOpacity": 1
+              }
+            },
+            "tooltip": {
+              "wrapper": {},
+              "container": {
+                "background": "#ffffff",
+                "color": "#333333",
+                "fontSize": 12
+              },
+              "basic": {},
+              "chip": {},
+              "table": {},
+              "tableCell": {},
+              "tableCellValue": {}
+            }
+          }
+        }
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
@@ -289,6 +133,7 @@ export default function Line() {
           reverse: false
         }}
         yFormat=" >-.2f"
+        curve="natural"
         axisTop={null}
         axisRight={null}
         axisBottom={{
@@ -304,8 +149,8 @@ export default function Line() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'count',
-          legendOffset: -40,
+          legend: 'Count',
+          legendOffset: -45,
           legendPosition: 'middle',
           truncateTickAt: 0
         }}
