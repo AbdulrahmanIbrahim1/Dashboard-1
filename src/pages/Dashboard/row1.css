@@ -1,0 +1,51 @@
+@media (min-width: 768px) {
+  .box {
+    justify-content: space-around !important;
+  }
+}
+
+.box {
+  background-color: #222;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.fa-envelope,
+.fa-sack-dollar,
+.fa-user-plus,
+.fa-traffic-light {
+  font-size: 20px;
+  color: #c790ff;
+}
+
+.height-2 {
+  height: 80px;
+  width: 80px;
+}
+
+.height-3 {
+  width: 150px;
+  height: 150px;
+}
+
+/* row2 */
+
+.col-common {
+  color: rgb(206, 147, 216);
+}
+
+.box-row2 {
+  max-height: 471px;
+  overflow: auto;
+}
+
+.box-geo-dash {
+  height: 283px;
+  overflow: hidden;
+}
+
+.tsts{
+  max-height: 100%;
+}

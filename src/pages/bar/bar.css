@@ -2,3 +2,16 @@
   height: 75vh;
   min-width: 25pc;
 }
+
+[dash=true].char-parent{
+  height: 350px;
+}
+[bardash=true].char-parent{
+  height: 245px;
+  width: 425px;
+}
+
+[border=true].char-parent{
+  height: 245px;
+  /* height: 200px; */
+}

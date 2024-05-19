@@ -4,10 +4,10 @@ import { data } from './data'
 import './bar.css'
 import { Dark } from '../../App'
 
-export default function BarChart() {
+export default function BarChart({ bardash =false}) {
   const { dark } = useContext(Dark)
   return (
-    <div className='char-parent'>
+    <div className='char-parent' bardash={`${bardash}`}>
 
       <ResponsiveBar
         data={data}
@@ -182,7 +182,7 @@ export default function BarChart() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'Years',
+          legend: `${bardash ? " " : "Years"}`,
           legendPosition: 'middle',
           legendOffset: 40,
           truncateTickAt: 0
@@ -191,7 +191,7 @@ export default function BarChart() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'Salary/Month',
+          legend: `${bardash ? " " : "Salary/Month"}`,
           legendPosition: 'middle',
           legendOffset: -50,
           truncateTickAt: 0
@@ -207,7 +207,7 @@ export default function BarChart() {
             ]
           ]
         }}
-        legends={[
+        legends={bardash? [] :[
           {
             dataFrom: 'keys',
             anchor: 'bottom-right',

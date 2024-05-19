@@ -5,14 +5,14 @@ import { data } from './data'
 
 
 
-export default function Line() {
+export default function Line({isDash = false}) {
   const { dark } = useContext(Dark)
   return (
-    <div className='char-parent'>
+    <div className='char-parent' dash={`${isDash}`}>
       <ResponsiveLine
         theme={
           {
-            "background": `${dark ? " " : "#eee"}`,
+            // "background": `${dark ? " " : "#eee"}`,
             "text": {
               "fontSize": 11,
               "fill": "#333333",
@@ -140,7 +140,7 @@ export default function Line() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'transportation',
+          legend: `${isDash ? " " : "transportation"}`,
           legendOffset: 36,
           legendPosition: 'middle',
           truncateTickAt: 0
@@ -149,7 +149,7 @@ export default function Line() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'Count',
+          legend: `${isDash ? " " : "Count"}`,
           legendOffset: -45,
           legendPosition: 'middle',
           truncateTickAt: 0
@@ -162,7 +162,7 @@ export default function Line() {
         pointLabelYOffset={-12}
         enableTouchCrosshair={true}
         useMesh={true}
-        legends={[
+      leg  ends={[
           {
             anchor: 'bottom-right',
             direction: 'column',

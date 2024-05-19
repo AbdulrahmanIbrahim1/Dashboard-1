@@ -4,10 +4,10 @@ import { data } from './data'
 import { geo } from './world_countries'
 import { Dark } from '../../App'
 
-export default function Geography() {
+export default function Geography({ geodash =false}) {
   const { dark } = useContext(Dark)
   return (
-    <div className={`char-parent border  ${dark ? "border-white" : "border-black"}`} >
+    <div className={`char-parent   ${geodash ? "" : dark ? " border border-white" : " border border-black"}`} >
       <ResponsiveChoropleth
         data={data}
         features={geo.features} 
@@ -27,7 +27,7 @@ export default function Geography() {
         borderColor="#152538"
         theme={
           {
-            "background": `${dark ? " " : "#eee"}`,
+            "background": `${geodash? "transparent" : dark ? " " : "#eee"}`,
             "text": {
               "fontSize": 11,
               "fill": "#333333",
@@ -192,7 +192,8 @@ export default function Geography() {
           }
         ]}
 
-        legends={[
+        
+        legends={geodash ? [] : [
           {
             anchor: 'bottom-left',
             direction: 'column',
@@ -203,7 +204,7 @@ export default function Geography() {
             itemWidth: 94,
             itemHeight: 18,
             itemDirection: 'left-to-right',
-            itemTextColor: `${dark? "white":"black"}`,
+            itemTextColor: `${dark ? "white" : "black"}`,
             itemOpacity: 0.85,
             symbolSize: 18,
             effects: [
