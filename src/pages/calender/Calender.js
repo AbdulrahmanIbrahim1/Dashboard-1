@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { formatDate } from '@fullcalendar/core'
 import FullCalendar from '@fullcalendar/react'
@@ -7,6 +8,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from './event-utils'
 import './Calender.css'
 import { Row } from 'react-bootstrap'
+
 
 
 export default function Calender() {
@@ -56,7 +58,7 @@ export default function Calender() {
         currentEvents={currentEvents}
       />
 
-      <div className='demo-app-main col-sm-12 col-lg-9'>
+      <div className='demo-app-main col-sm-13 col-lg-9'>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
